@@ -1,4 +1,4 @@
-BTRobotControl    KEYWORD1
+BTRobocontrol   KEYWORD1
 begin           KEYWORD2
 handleBluetooth KEYWORD2
 forward         KEYWORD2
