@@ -1,12 +1,12 @@
-#ifndef RobotControl_h
-#define RobotControl_h
+#ifndef BTRobotControl_h
+#define BTRobotControl_h
 
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-class RobotControl {
+class BTRobotControl {
   public:
-    RobotControl(uint8_t rxPin, uint8_t txPin);
+    BTRobotControl(uint8_t rxPin, uint8_t txPin);
     void begin(long baudRate);
     void handleBluetooth();
   private:
