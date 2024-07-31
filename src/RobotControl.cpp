@@ -1,13 +1,13 @@
-#include "RobotControl.h"
+#include "BTRobotControl.h"
 
 #define IN1 5
 #define IN2 6
 #define IN3 11
 #define IN4 10
 
-RobotControl::RobotControl(uint8_t rxPin, uint8_t txPin) : mySerial(rxPin, txPin) {}
+BTRobotControl::BTRobotControl(uint8_t rxPin, uint8_t txPin) : mySerial(rxPin, txPin) {}
 
-void RobotControl::begin(long baudRate) {
+void BTRobotControl::begin(long baudRate) {
   Serial.begin(115200);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
@@ -20,7 +20,7 @@ void RobotControl::begin(long baudRate) {
   mySerial.begin(baudRate);
 }
 
-void RobotControl::handleBluetooth() {
+void BTRobotControl::handleBluetooth() {
   while (mySerial.available()) {
     data = mySerial.read();
     Serial.print("Bluetooth Value: ");
@@ -51,35 +51,35 @@ void RobotControl::handleBluetooth() {
   }
 }
 
-void RobotControl::forward() {
+void BTRobotControl::forward() {
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 }
 
-void RobotControl::backward() {
+void BTRobotControl::backward() {
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
 
-void RobotControl::left() {
+void BTRobotControl::left() {
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 }
 
-void RobotControl::right() {
+void BTRobotControl::right() {
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, LOW);
 }
 
-void RobotControl::stoprobot() {
+void BTRobotControl::stoprobot() {
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
